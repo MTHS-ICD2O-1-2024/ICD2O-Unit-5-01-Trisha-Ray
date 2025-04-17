@@ -4,16 +4,27 @@
 // Created on: April 2025
 // This file contains the JS functions for index.html
 
-"use strict"
+const randomNumber = Math.floor(Math.random() * 6) + 1;
 
-function calculateCelcius() {
+/**
+ * This function checks if the user has selected the random number from above
+ */
+// eslint-disable-next-line no-unused-vars
+function checkNumber() {
   // input
-  const fahrenheit = parseFloat(document.getElementById('fahrenheit').value);
+  const userNumber = parseFloat(document.getElementById('userNumber').value);
 
   // process
-  const celcius = (fahrenheit - 32) * 5/9 
-
+  if (userNumber === randomNumber) {
   // output
-  document.getElementById('temperature').innerHTML = 'The temperature in clecius is: ' + celcius + '°'
+  document.getElementById('results').innerHTML =
+  '<p>You have guessed the correct number!</p>'
+  }
+  
+  if (userNumber !== randomNumber) {
+    //output
+    document.getElementById('results').innerHTML =
+    '<p>You have guessed the wrong number!' +
+    '<br/>The correct number was: ' + randomNumber + '</p>'
+  }
 }
-
